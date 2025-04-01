@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Accordion,
     AccordionItem,
@@ -17,11 +17,11 @@ const Value = () => {
     <section className="v-wrapper">
         <div className="paddings innerWidth flexCenter v-container">
             {/* left side */}
-            <dvi className="v-left">
+            <div className="v-left">
                 <div className="image-container">
                     <img src="./value.png" alt="" />
                 </div>
-            </dvi>
+            </div>
 
             {/* right side  */}
             <div className="flexColStart v-right">
@@ -38,11 +38,17 @@ const Value = () => {
                 preExpanded={[0]}
                 >
                     {
-                        data.map ((items, i) =>{
+                        data.map ((items, i) => {
+                            const [className, setClassName] = useState(null)
                             return(
-                                <AccordionItem className='accordionItem' key={i} uuid={i}> 
+                                <AccordionItem className= {'accordionItem &{className}'} key={i} uuid={i}> 
                                     <AccordionItemHeading>
-                                        <AccordionItemButton>
+                                        <AccordionItemButton className='flexCenter accordionButton'>
+
+                                            <AccordionItemState>
+                                                {({expanded}) => expanded ? setClassName("expanded") : setClassName("collapsed")}
+                                            </AccordionItemState>
+
                                             <div className="flexCenter icon">
                                                 {items.icon}
                                             </div>
