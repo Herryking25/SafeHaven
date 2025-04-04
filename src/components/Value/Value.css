@@ -1,7 +1,3 @@
-.v-wrapper{
-    padding: 0 6rem;
-}
-
 .v-container .image-container{
     border: 8px solid rgb(232 232 232 / 93%);
 }
@@ -44,4 +40,17 @@
 }
 .accordionButton .primaryText{
     font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+    .v-container{
+        flex-direction: column;
+    }  
+}
+
+@media (max-width: 768px) {
+    .accordionButton .primaryText{
+        font-size: 0.8rem;
+    }
+    
 }
